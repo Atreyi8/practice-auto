@@ -14,6 +14,7 @@ const renderDropDown = (list) => {
   list.forEach((item) => {
     const el = document.createElement("div");
     el.innerHTML = item;
+    el.setAttribute("data-key", item);
     suggestFragment.appendChild(el);
   });
   suggestionContainer.innerHTML = "";
@@ -38,6 +39,18 @@ const handleChange = (event) => {
     resetState();
   }
 };
+
+const handleSelect = (event) => {
+  const { key } = event.target.dataset;
+  console.log(key, event.target);
+  if (key) {
+    inputBox.value = key;
+    resetState();
+  } else {
+    resetState();
+  }
+};
 (() => {
   inputBox.addEventListener("input", handleChange);
+  suggestionContainer.addEventListener("click", handleSelect);
 })();
