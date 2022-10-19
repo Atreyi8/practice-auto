@@ -1,2 +1,2 @@
-# autocomplete search box
+# Autocomplete search box
 Made with Html , Css , Javascript
